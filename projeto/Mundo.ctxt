@@ -12,4 +12,6 @@ comment4.params=
 comment4.target=void\ startGame()
 comment5.params=amount
 comment5.target=void\ decrementScore(int)
-numComments=6
+comment6.params=amount
+comment6.target=void\ incrementKill(int)
+numComments=7

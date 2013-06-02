@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.List;
 public class Magia extends Slayer
 {
 
@@ -10,9 +10,13 @@ public class Magia extends Slayer
             Explosao ex = new Explosao();
             getWorld().addObject(ex, getX(), getY());
             getWorld().removeObject(this);
-
        
         }
+    /*  List de = getIntersectingObjects(Bat.class);
+      if (de.size()==1){
+       Mundo m = (Mundo)getWorld();
+       m.addBats();
+    }*/
     }
     protected boolean hit()
     {

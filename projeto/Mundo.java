@@ -5,13 +5,13 @@ public class Mundo extends World
     public static final int WIDTH = 800;
     public static final int HEIGHT = 600;
     private Score score=new Score();
+    public Kills kill = new Kills();
     /**
      * Constructor for objects of class Talisman.
      * 
      */
     public Mundo()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1);
         prepare();
     }
@@ -23,14 +23,18 @@ public class Mundo extends World
     private void prepare()
     {
         addObject( score, 0, 0 );
+        addObject( kill, 0, 0);
         addObject(new Slayer(), 300, 300);
         for(int i=0;i<8;i++){
            addObject(new Bat(), 90, 70);
         }
-        if (getObjects(Bat.class).size() == 0){ addBats();  }
+
+
     }
     public void addBats(){
-        addObject(new Bat(),90,70);
+        Bat bat = new Bat();
+        addObject(bat, 90, 70);
+        //addObject(bat, Greenfoot.getRandomNumber(getWidth()), Greenfoot.getRandomNumber(getHeight()));  
     }
     public final void startGame()
     {
@@ -41,6 +45,12 @@ public class Mundo extends World
     {
         if ( score != null ) {
             score.decrement( amount );
+        }
+    }
+     public void incrementKill(int amount)
+    {
+        if ( kill != null ) {
+            kill.increment(amount);
         }
     }
 }

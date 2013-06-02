@@ -3,7 +3,6 @@ comment0.params=
 comment0.target=void\ act()
 comment1.params=
 comment1.target=void\ turnAtEdge()
-comment1.text=\r\n\ Check\ whether\ we\ are\ at\ the\ edge\ of\ the\ world.\ If\ we\ are,\ turn\ a\ bit.\r\n\ If\ not,\ do\ nothing.\r\n
 comment2.params=
 comment2.target=boolean\ hitEnemy()
 comment3.params=

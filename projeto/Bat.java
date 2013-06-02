@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.List;
 /**
  * Write a description of class Zumbi here.
  * 
@@ -8,21 +8,21 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bat extends Inimigo
 {
-
+      
  public void act()
     {
+        Mundo mundo = (Mundo) getWorld();
         turnAtEdge();
         randomTurn();
         move(1);
         if(hitEnemy()==true){
         getWorld().removeObject(this);
+        mundo.incrementKill(1);
+        mundo.addBats();
     }
     }
 
-    /**
-     * Check whether we are at the edge of the world. If we are, turn a bit.
-     * If not, do nothing.
-     */
+
     public void turnAtEdge()
     {
         if ( atWorldEdge() ) 
@@ -32,9 +32,10 @@ public class Bat extends Inimigo
     }
     protected boolean hitEnemy()
     {
-        Magia m = (Magia) getOneIntersectingObject( Magia.class );
+        List neighbours = getNeighbours(1, false, Magia.class);
         Explosao exp = (Explosao) getOneIntersectingObject(Explosao.class);
-        if ( m != null || exp != null ) {
+        
+        if (!neighbours.isEmpty() || exp != null) {
             return true;
         } else {
             return false;

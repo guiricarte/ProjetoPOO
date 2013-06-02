@@ -9,7 +9,6 @@ public class Explosao extends Slayer
         life--;
         if(life==0)
         getWorld().removeObject(this);
-        
     }    
     
 

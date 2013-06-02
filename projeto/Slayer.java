@@ -44,6 +44,7 @@ public class Slayer extends Actor
     public void tiro(){
 
         if("space".equals(Greenfoot.getKey())){
+            Greenfoot.playSound("Sakura_Hadouken.mp3");
             Magia magia = new Magia();
             getWorld().addObject(magia,this.getX(),this.getY());
             magia.setRotation(getRotation());
